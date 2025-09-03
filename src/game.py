@@ -132,6 +132,15 @@ class Game:
         """
         return self.lives
 
+    def is_finished(self) -> bool:
+        """
+        Check if the game has ended (either won or lost).
+
+        Returns:
+            bool: True if game is finished, False if still in progress
+        """
+        return self._is_won() or self._is_lost()
+
     def _mask(self, text: str) -> str:
         """
         Create a masked version of the text with underscores for letters.
