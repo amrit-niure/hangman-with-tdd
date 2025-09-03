@@ -95,3 +95,17 @@ def test_repeat_guess_marked_repeat_no_life_loss():
     res = g.make_guess("a")
     assert res.outcome == "repeat"
     assert res.remaining_lives == 3
+
+
+def test_invalid_input_does_not_change_state():
+    """
+    Test that invalid input is rejected without affecting game state.
+
+    Verifies that multi-character input, numbers, or other invalid
+    characters don't alter the game state or consume lives.
+    """
+    g = Game("code", lives=3)
+    res = g.make_guess("ab")  # invalid: more than one char
+    assert res.outcome == "invalid"
+    assert g.reveal == "____"
+    assert g.remaining_lives == 3
