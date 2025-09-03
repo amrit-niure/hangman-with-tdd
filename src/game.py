@@ -12,10 +12,11 @@ Course: PRT582 Software Engineering Process and Tools
 
 from enum import Enum, auto
 
+
 class MaskingMode(Enum):
     """
     Enumeration for different masking modes in the Hangman game.
-    
+
     WORD: Masks individual words (spaces remain visible)
     PHRASE: Masks entire phrases including spaces
     """
@@ -26,11 +27,11 @@ class MaskingMode(Enum):
 class Game:
     """
     Main Hangman Game Class
-    
+
     This class implements the core game logic for Hangman, managing the game state,
     processing guesses, and determining win/loss conditions. It follows object-oriented
     design principles with clear separation of concerns.
-    
+
     """
     def __init__(self, target, lives=6, masking_mode=MaskingMode.WORD):
         self.target = target.lower()
@@ -40,8 +41,20 @@ class Game:
 
     @property
     def reveal(self) -> str:
+        """
+        Get the current revealed state of the target.
+
+        Returns:
+            str: The target with unguessed letters masked as underscores
+        """
         return self._reveal_state
+
     @property
     def remaining_lives(self) -> int:
+        """
+        Get the number of remaining lives.
+
+        Returns:
+            int: Number of incorrect guesses still allowed
+        """
         return self.lives
-    

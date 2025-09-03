@@ -17,6 +17,7 @@ Assignment: A2 Individual Software Unit Testing Report (30%)
 """
 from src.game import Game, MaskingMode
 
+
 def test_initial_masking_word():
     """
     games takes three arguments, the trarget letter , number

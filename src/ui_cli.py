@@ -18,7 +18,7 @@ Course: PRT582 Software Engineering Process and Tools
 def print_welcome_banner() -> None:
     """
     Display an attractive welcome banner for the game.
-    
+
     Provides visual appeal and clear game identification using ASCII art
     and formatted text to create a professional user experience.
     """
@@ -37,15 +37,15 @@ def print_welcome_banner() -> None:
 def main() -> None:
     """
     Main entry point for the Hangman game CLI.
-    
+
     Handles command-line arguments, initializes the game, manages the
     game loop, and provides comprehensive user interaction with enhanced
     visual feedback and professional presentation.
     """
 
-
     # Display welcome banner and game information
     print_welcome_banner()
+
 
 if __name__ == "__main__":
     main()

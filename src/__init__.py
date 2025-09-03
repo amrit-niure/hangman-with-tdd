@@ -1,4 +1,3 @@
-
 """
 Hangman Game Package
 
@@ -33,6 +32,7 @@ __assignment__ = "A2 Individual Software Unit Testing Report"
 
 
 from .game import Game, MaskingMode
+
 
 __all__ = [
     "Game",
