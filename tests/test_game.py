@@ -29,3 +29,28 @@ def test_initial_masking_word():
 
     assert g.reveal == "______"
     assert g.remaining_lives == 3
+
+
+def test_initial_masking_phrase():
+    """
+    Test that phrase masking correctly handles multi-word content.
+
+    Ensures that PHRASE masking mode preserves spaces and punctuation
+    while masking only alphabetic characters.
+    """
+    g = Game("clean code!", lives=3, masking_mode=MaskingMode.PHRASE)
+    assert g.reveal == "_____ ____!"  # spaces/punct stay visible
+
+
+def test_correct_guess_reveals_all_occurrences():
+    """
+    Test that a correct guess reveals all instances of the letter.
+
+    Verifies that when a letter appears multiple times in the target,
+    all occurrences are revealed simultaneously without losing lives.
+    """
+    g = Game("testing", lives=5)
+    res = g.make_guess("t")
+    assert res.outcome == "correct"
+    assert res.revealed.count("t") == 2
+    assert res.remaining_lives == 5
