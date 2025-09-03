@@ -230,6 +230,15 @@ class Game:
                 >>> if result.outcome == "correct":
                 ...     print("Good guess!")
             """
+        # Handle timeout case (None input)
+        if guess is None:
+            return GuessResult(
+                outcome="timeout",
+                revealed=self._reveal_state,
+                remaining_lives=self.lives,
+                won=self._is_won(),
+                lost=self._is_lost(),
+            )
         # Process new valid guess
         self._guessed.add(guess)
         revealed_now = self._apply_reveal(guess)
