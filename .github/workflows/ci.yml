@@ -25,10 +25,10 @@ jobs:
         run: uv sync
 
       - name: Run pylint
-        run: pylint
+        run: uv run pylint .
 
       - name: Run flake8
-        run: flake8
+        run: uv run flake8 .
 
       - name: Run tests
         run: uv run pytest -v
