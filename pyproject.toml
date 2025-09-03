@@ -1,11 +1,19 @@
 [project]
 name = "hangman-with-tdd"
 version = "0.1.0"
-description = "Add your description here"
+description = "A classic word-guessing game built with TDD principles by Amrit Niure(396426)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "flake8>=7.3.0",
     "pylint>=3.3.8",
     "pytest>=8.4.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
 ]

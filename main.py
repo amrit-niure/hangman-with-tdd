@@ -1,6 +1,4 @@
-def main():
-    print("Hello from hangman-with-tdd!")
-
+from src.ui_cli import main
 
 if __name__ == "__main__":
     main()
