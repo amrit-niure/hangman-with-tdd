@@ -67,3 +67,17 @@ def test_incorrect_guess_loses_life():
     res = g.make_guess("z")
     assert res.outcome == "incorrect"
     assert res.remaining_lives == 1
+
+
+def test_timeout_loses_life():
+    """
+    Test that timeout conditions are handled correctly.
+
+    Verifies that when a player doesn't guess within the time limit
+    (simulated by None input), a life is lost and game state is updated.
+    """
+    g = Game("python", lives=1)
+    res = g.make_guess(None)  # simulate timer expiry
+    assert res.outcome == "timeout"
+    assert res.remaining_lives == 0
+    assert res.lost
