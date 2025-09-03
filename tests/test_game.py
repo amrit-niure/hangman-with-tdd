@@ -178,3 +178,30 @@ def test_empty_string_invalid():
     res = g.make_guess("")
     assert res.outcome == "invalid"
     assert g.remaining_lives == 3
+
+
+def test_game_state_consistency():
+    """
+    Test that game state remains consistent throughout gameplay.
+
+    Verifies that the game maintains proper state consistency
+    across multiple guess operations.
+    """
+    g = Game("hello", lives=6)
+
+    # Make several guesses and verify state consistency
+    result1 = g.make_guess("h")  # correct
+    assert result1.outcome == "correct"
+    assert "h" in g.guessed
+
+    result2 = g.make_guess("x")  # incorrect
+    assert result2.outcome == "incorrect"
+    assert result2.remaining_lives == 5
+
+    result3 = g.make_guess("e")  # correct
+    assert result3.outcome == "correct"
+    assert "e" in g.guessed
+
+    # Verify final state
+    assert len(g.guessed) == 3
+    assert g.remaining_lives == 5
