@@ -109,3 +109,16 @@ def test_invalid_input_does_not_change_state():
     assert res.outcome == "invalid"
     assert g.reveal == "____"
     assert g.remaining_lives == 3
+
+
+def test_win_condition():
+    """
+    Test that win conditions are properly detected.
+    
+    Ensures that when all letters in the target are guessed,
+    the game correctly identifies a win state.
+    """
+    g = Game("aa", lives=5)
+    g.make_guess("a")
+    assert g.is_finished()
+    assert g.reveal == "aa"
