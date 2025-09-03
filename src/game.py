@@ -252,6 +252,17 @@ class Game:
 
         # Clean and normalize input
         g = guess.strip().lower()
+
+        # Handle quit command
+        if g == "quit":
+            return GuessResult(
+                outcome="quit",
+                revealed=self._reveal_state,
+                remaining_lives=self.lives,
+                won=self._is_won(),
+                lost=self._is_lost(),
+            )
+
         # Validate input format and characters
         if len(g) != 1 or g not in self._valid_chars:
             return GuessResult(
