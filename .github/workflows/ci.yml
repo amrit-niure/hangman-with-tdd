@@ -1,0 +1,28 @@
+# this is a continious integration for running test cases on each push on main branch. So that everytime we push our code changes, the tests will be executed automatically using github actions.
+name: Run Python Tests
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          # here i am using new package manager called "uv" which is built on top of our old pacakge manager "pip" which is very effiecient and smart as well as very easy to use.
+      - name: Install uv
+        run: pip install uv
+
+        # this is where i am installing the dependencies for the project, it is similar as pip install -r requirements.txt
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run tests
+        run: uv run pytest -v
