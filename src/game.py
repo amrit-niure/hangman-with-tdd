@@ -37,3 +37,11 @@ class Game:
         self.lives = lives
         self.masking_mode = masking_mode
         self._reveal_state = "".join("_" if ch.isalpha() else ch for ch in self.target)
+
+    @property
+    def reveal(self) -> str:
+        return self._reveal_state
+    @property
+    def remaining_lives(self) -> int:
+        return self.lives
+    
