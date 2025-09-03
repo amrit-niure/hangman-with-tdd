@@ -240,6 +240,16 @@ class Game:
                 won=self._is_won(),
                 lost=self._is_lost(),
             )
+
+        # Check for repeated guess
+        if guess in self._guessed:
+            return GuessResult(
+                outcome="repeat",
+                revealed=self._reveal_state,
+                remaining_lives=self.lives,
+                won=self._is_won(),
+                lost=self._is_lost(),
+            )
         # Process new valid guess
         self._guessed.add(guess)
         revealed_now = self._apply_reveal(guess)
