@@ -148,3 +148,33 @@ def test_quit_command_handling():
     res = g.make_guess("quit")
     assert res.outcome == "quit"
     assert res.remaining_lives == 3
+
+
+def test_case_insensitive_guessing():
+    """
+    Test that the game handles both uppercase and lowercase input.
+
+    Verifies that letter case doesn't affect guess processing,
+    ensuring consistent behavior regardless of input case.
+    """
+    g = Game("Python", lives=3)
+    res_lower = g.make_guess("p")
+    assert res_lower.outcome == "correct"
+
+    # Reset for uppercase test
+    g2 = Game("Python", lives=3)
+    res_upper = g2.make_guess("P")
+    assert res_upper.outcome == "correct"
+
+
+def test_empty_string_invalid():
+    """
+    Test that empty string input is handled as invalid.
+
+    Ensures that empty or whitespace-only input is properly
+    rejected without affecting game state.
+    """
+    g = Game("test", lives=3)
+    res = g.make_guess("")
+    assert res.outcome == "invalid"
+    assert g.remaining_lives == 3
