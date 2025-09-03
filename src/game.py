@@ -241,8 +241,19 @@ class Game:
                 lost=self._is_lost(),
             )
 
+        # Clean and normalize input
+        g = guess.strip().lower()
+        # Validate input format and characters
+        if len(g) != 1 or g not in self._valid_chars:
+            return GuessResult(
+                outcome="invalid",
+                revealed=self._reveal_state,
+                remaining_lives=self.lives,
+                won=self._is_won(),
+                lost=self._is_lost(),
+            )
         # Check for repeated guess
-        if guess in self._guessed:
+        if g in self._guessed:
             return GuessResult(
                 outcome="repeat",
                 revealed=self._reveal_state,
@@ -251,8 +262,8 @@ class Game:
                 lost=self._is_lost(),
             )
         # Process new valid guess
-        self._guessed.add(guess)
-        revealed_now = self._apply_reveal(guess)
+        self._guessed.add(g)
+        revealed_now = self._apply_reveal(g)
 
         if revealed_now > 0:
             outcome = "correct"
