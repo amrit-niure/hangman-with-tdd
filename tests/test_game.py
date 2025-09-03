@@ -54,3 +54,16 @@ def test_correct_guess_reveals_all_occurrences():
     assert res.outcome == "correct"
     assert res.revealed.count("t") == 2
     assert res.remaining_lives == 5
+
+
+def test_incorrect_guess_loses_life():
+    """
+    Test that incorrect guesses properly decrement remaining lives.
+
+    Ensures the game correctly handles wrong guesses by reducing
+    the life count and maintaining proper game state.
+    """
+    g = Game("python", lives=2)
+    res = g.make_guess("z")
+    assert res.outcome == "incorrect"
+    assert res.remaining_lives == 1

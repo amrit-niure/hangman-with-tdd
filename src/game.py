@@ -206,7 +206,6 @@ class Game:
             if ch == letter and reveal_list[i] == "_":
                 reveal_list[i] = letter
                 count += 1
-                break
 
         # Update the reveal state
         self._reveal_state = "".join(reveal_list)
@@ -239,6 +238,7 @@ class Game:
             outcome = "correct"
         else:
             outcome = "incorrect"
+            self.lives -= 1
 
         return GuessResult(
             outcome=outcome,
