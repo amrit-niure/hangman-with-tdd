@@ -1,3 +1,20 @@
+"""
+Hangman Game Command Line Interface
+
+This module provides the command-line interface for the Hangman game,
+implementing a clean and user-friendly terminal-based experience with
+enhanced visual feedback and comprehensive error handling.
+
+The UI follows best practices for CLI design including clear prompts,
+informative messages, and graceful error handling.
+
+Author: Amrit Niure
+StudentId: 396426
+Date: 3 September 2025
+Course: PRT582 Software Engineering Process and Tools
+"""
+
+
 def print_welcome_banner() -> None:
     """
     Display an attractive welcome banner for the game.
