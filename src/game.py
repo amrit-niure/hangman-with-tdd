@@ -232,6 +232,7 @@ class Game:
             """
         # Handle timeout case (None input)
         if guess is None:
+            self.lives -= 1
             return GuessResult(
                 outcome="timeout",
                 revealed=self._reveal_state,
