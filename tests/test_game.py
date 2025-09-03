@@ -81,3 +81,17 @@ def test_timeout_loses_life():
     assert res.outcome == "timeout"
     assert res.remaining_lives == 0
     assert res.lost
+
+
+def test_repeat_guess_marked_repeat_no_life_loss():
+    """
+    Test that repeat guesses are identified without penalty.
+
+    Ensures that guessing the same letter twice doesn't result in
+    additional life loss, maintaining fair gameplay.
+    """
+    g = Game("hangman", lives=3)
+    assert g.make_guess("a").outcome == "correct"
+    res = g.make_guess("a")
+    assert res.outcome == "repeat"
+    assert res.remaining_lives == 3
