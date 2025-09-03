@@ -135,3 +135,16 @@ def test_lose_condition():
     g.make_guess("b")  # wrong
     assert g.is_finished()
     assert g.remaining_lives == 0
+
+
+def test_quit_command_handling():
+    """
+    Test that quit commands are properly processed.
+
+    Ensures that typing 'quit' returns the appropriate outcome
+    without affecting other game state variables.
+    """
+    g = Game("test", lives=3)
+    res = g.make_guess("quit")
+    assert res.outcome == "quit"
+    assert res.remaining_lives == 3
