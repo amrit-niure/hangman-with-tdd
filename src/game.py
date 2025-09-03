@@ -12,7 +12,16 @@ class MaskingMode(Enum):
 
 
 class Game:
-    def __init__(self, target, lives=6, masking_mode=MaskingMode.WORD, valid_chars="abcdefghijklmnopqrstuvwxyz"):
+    """
+    Main Hangman Game Class
+    
+    This class implements the core game logic for Hangman, managing the game state,
+    processing guesses, and determining win/loss conditions. It follows object-oriented
+    design principles with clear separation of concerns.
+    
+    """
+    def __init__(self, target, lives=6, masking_mode=MaskingMode.WORD, 
+        valid_chars="abcdefghijklmnopqrstuvwxyz"):
         self.target = target.lower()
         self.lives = lives
         self.masking_mode = masking_mode
