@@ -1,0 +1,27 @@
+[flake8]
+# Maximum line length
+max-line-length = 88
+
+# Ignore specific error codes that conflict with common formatters
+ignore = 
+    E501
+    W503
+    E203
+
+# Exclude files and directories
+exclude = 
+    .git,
+    __pycache__,
+    *.pyc,
+    .venv,
+    venv,
+    .tox,
+    build,
+    dist,
+    .pytest_cache
+
+# Show source code for each error
+show-source = True
+
+# Show statistics at the end
+statistics = True

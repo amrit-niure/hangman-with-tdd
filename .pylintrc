@@ -1,0 +1,4 @@
+[MASTER]
+# Specify a configuration file.
+init-hook='import sys; sys.path.append(".")'
+ignore=.venv,__pycache__,.pytest_cache
