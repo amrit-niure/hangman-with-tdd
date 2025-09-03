@@ -1,3 +1,15 @@
+"""
+Hangman Game Core Module
+
+This module contains the core game logic for the Hangman game, implementing
+Test-Driven Development (TDD) principles. It provides the main Game class
+along with supporting enums and data structures.
+
+Author: Charles Darwin University Software Engineering Student
+Date: September 2025
+Course: PRT582 Software Engineering Process and Tools
+"""
+
 from enum import Enum, auto
 
 class MaskingMode(Enum):
