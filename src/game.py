@@ -20,7 +20,7 @@ class Game:
     design principles with clear separation of concerns.
     
     """
-    def __init__(self, target, lives=6, masking_mode=MaskingMode.WORD, 
+    def __init__(self, target, lives=6, masking_mode=MaskingMode.WORD,
         valid_chars="abcdefghijklmnopqrstuvwxyz"):
         self.target = target.lower()
         self.lives = lives
