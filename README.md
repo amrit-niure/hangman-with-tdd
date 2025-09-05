@@ -1,42 +1,49 @@
-Hangman Game with Test-Driven Development
-A Python implementation of the classic Hangman game built using Test-Driven Development (TDD) methodology.
+# Hangman Game with Test-Driven Development
 
-Prerequisites
-Python 3.8 or higher
+A Python implementation of the classic Hangman game built using **Test-Driven Development (TDD)** methodology.
 
-pip (Python package installer)
+## Prerequisites
 
-Installation & Setup
-Clone the repository:
+* **Python 3.8** or higher
+* **pip** (Python package installer)
 
-bash
-git clone https://github.com/amrit-niure/hangman-with-tdd
-cd hangman-with-tdd
-Install UV package manager (if not already installed):
+## Installation & Setup
 
-bash
-pip install uv
-Install dependencies:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/amrit-niure/hangman-with-tdd](https://github.com/amrit-niure/hangman-with-tdd)
+    cd hangman-with-tdd
+    ```
+2.  **Install UV package manager** (if not already installed):
+    ```bash
+    pip install uv
+    ```
+3.  **Install dependencies:**
+    ```bash
+    uv sync
+    ```
 
-bash
-uv sync
-Running the Application
+## Running the Application
+
 To start playing Hangman:
 
-bash
+```bash
 bash run_app.sh
+```
 Running Tests
 To execute the test suite:
 
-bash
+```bash
 bash run_tests.sh
-Project Structure
+```
+
+## Project Structure
 The project follows standard Python packaging conventions with source code in the src/ directory and tests in the tests/ directory.
 
-Development Approach
+## Development Approach
 This project was developed using Test-Driven Development (TDD), where tests were written before implementing the actual functionality to ensure code reliability and maintainability.
 
-Features
+## Features
 Classic Hangman gameplay
 
 Word guessing with limited attempts
