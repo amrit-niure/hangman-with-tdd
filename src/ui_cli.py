@@ -273,7 +273,7 @@ def main() -> None:
             print("🌟 Excellent work! You're a Hangman champion!")
             return
 
-        elif result.lost:
+        if result.lost:
             print_hangman_art(0)  # Show final hangman
             print("💀" * 20)
             print("😵 GAME OVER - YOU LOST! 😵")
